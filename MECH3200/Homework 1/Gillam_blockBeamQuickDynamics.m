@@ -44,16 +44,10 @@ classdef Gillam_blockBeamQuickDynamics < handle
             theta_dot = states(4);
             F         = input;
 
-            % Parameters
-            m_1 = self.m_1;
-            m_2 = self.m_2;
-            ell = self.ell;
-            g   = self.g;
-
             % Dynamics Equations
-            equations_of_motion = [z*theta_dot^2 - g*sin(theta);
-                                   (((-6*m_1)/((3*m_1*z^2)+(m_2*ell^2)))*z*z_dot*theta_dot) - ...
-                                   ((((6*m_1*g*z)+(3*m_2*g*ell)-(6*F*ell))/((6*m_1*z^2)+(2*m_2*ell^2)))*cos(theta))];
+            equations_of_motion = [z*theta_dot^2 - self.g*sin(theta);
+                                   (((-6*self.m_1)/((3*self.m_1*z^2)+(self.m_2*self.ell^2)))*z*z_dot*theta_dot) - ...
+                                   ((((6*self.m_1*self.g*z)+(3*self.m_2*self.g*self.ell)-(6*F*self.ell))/((6*self.m_1*z^2)+(2*self.m_2*self.ell^2)))*cos(theta))];
             z_ddot = equations_of_motion(1);
             theta_ddot = equations_of_motion(2);
 

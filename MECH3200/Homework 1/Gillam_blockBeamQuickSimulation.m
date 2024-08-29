@@ -9,8 +9,8 @@ Param.ell = 0.5;  % m
 Param.g   = 9.81; % m/s
 
 % Intial State
-Param.z_0         = 0;          % m
-Param.theta_0     = deg2rad(10); % rad
+Param.z_0         = 0.25;          % m
+Param.theta_0     = deg2rad(0); % rad
 Param.z_dot_0     = 0;          % m/s
 Param.theta_dot_0 = 0;          % rad/s
 
@@ -28,7 +28,7 @@ state_history = NaN(4, size(time_history,2));
 % Simulation
 for i = 1:length(time_history)
     % Input
-    F = 0;
+    F = 11.51675; % N
 
     % Step Dynamics forward in time
     state_history(:,i) = dynamics.update(F);
