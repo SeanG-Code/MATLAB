@@ -52,6 +52,6 @@ for x=0:200
     % draws the plot
     drawnow;
     % pauses for 1 second
-    pause(1);
+    pause(.00000001);
 end
 
